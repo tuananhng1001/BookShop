@@ -8,7 +8,7 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Logout"
         onPress={() => {
-          navigation.navigate('Setting');
+          navigation.navigate('Auth');
         }}
       />
     </View>

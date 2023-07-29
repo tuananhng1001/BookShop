@@ -30,7 +30,7 @@ export const MainNavigator = () => {
       <Stack.Navigator
         initialRouteName={initialRouteName}
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Author" component={AuthNavigator} />
+        <Stack.Screen name="Auth" component={AuthNavigator} />
         <Stack.Screen name="HomePage" component={HomeBottomNavigation} />
         <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
         <Stack.Screen name="AuthorDetail" component={AuthorDetailScreen} />

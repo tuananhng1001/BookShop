@@ -13,33 +13,13 @@ import { screenStyle } from '../style/ScreenStyle';
 import { textStyle } from '../style/TextStyle';
 import { Color } from '../style/Color';
 import { PressableText } from '../../components/PressableText';
-import { legacy_createStore as createStore } from 'redux';
 import { Constants } from '../../constant/Constant';
 import { getValueFromStorage } from '../../until/Storage';
-import { useSelector } from 'react-redux';
-import { Provider, useDispatch } from 'react-redux/es/exports';
-import loginReducer, { loginWork } from '../../reducer/AuthReduce';
-const reduxStore = createStore(loginReducer);
-const LoginScreen = ({navigation}) => {
-  return (
-    <Provider store={reduxStore}>
-      <Login navigation={navigation} />
-    </Provider>
-  );
-};
 
-const Login = ({navigation}) => {
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isHide, setShowPass] = useState(true);
-  const dispatch = useDispatch();
-
-  useSelector(state => {
-    console.log(state.isAuthenticated);
-    if (state.isAuthenticated) {
-      navigation.navigate('Main');
-    }
-  });
 
   const [curentEmail, setCurentEmail] = useState('');
   getValueFromStorage(Constants.EMAIL).then(value => {
@@ -47,9 +27,7 @@ const Login = ({navigation}) => {
   });
   console.log(curentEmail);
 
-  const handleLogin = () => {
-    loginWork(email, password, dispatch);
-  };
+  const handleLogin = () => {};
 
   return (
     <SafeAreaView style={screenStyle.container}>
